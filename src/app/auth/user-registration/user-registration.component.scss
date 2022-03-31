@@ -1,0 +1,30 @@
+.registrationForm {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+form {
+  width: 320px;
+  margin: 35px auto 100px;
+  display: block;
+  float: none;
+}
+.mat-form-field {
+  width: 100%;
+}
+.misc-bottom-padding {
+  margin: 8px 0 20px;
+}
+.misc-bottom-padding mat-label {
+  margin-right: 15px;
+}
+.mat-radio-label {
+  margin: 0 15px 0 0;
+}
+.title-center {
+  margin: 0 auto;
+}
+.button-wrapper {
+  margin-top: 10px;
+}

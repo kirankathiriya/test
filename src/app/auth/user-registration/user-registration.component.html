@@ -1,0 +1,48 @@
+<div class="content">
+  <div class='registrationForm'>
+    <div>
+      <h2>User Registration</h2>
+    </div>
+    <form [formGroup]="registrationForm" (ngSubmit)="submitForm()" novalidate>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput  formControlName="name" required>
+        <mat-error *ngIf="errorHandling('name', 'required')">
+          You must provide <strong>name</strong>
+       </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com"  formControlName="email" required>
+        <mat-error *ngIf="errorHandling('email', 'required')">
+          You must provide <strong>email</strong>
+       </mat-error>
+       <mat-error *ngIf="errorHandling('email', 'email')">
+         Incorrect <strong>email</strong> format
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="errorHandling('password', 'required')">
+          You must provide a <strong>password</strong>
+       </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your bio</mat-label>
+        <textarea matInput placeholder="Enter something about you"  formControlName="bio" required></textarea>
+        <mat-error *ngIf="errorHandling('bio', 'required')">
+          You must provide <strong>bio</strong>
+       </mat-error>
+      </mat-form-field>
+
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary" [disabled]="registrationForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

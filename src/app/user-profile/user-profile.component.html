@@ -1,0 +1,30 @@
+<div style="text-align: right; padding: 24px;">
+  <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+</div>
+<div class="content">
+  <div class="userProfile">
+    <div>
+      <h2>User Profile</h2>
+    </div>
+    <div>
+      <ng-container *ngIf="user; else loading">
+        <ng-container *ngTemplateOutlet="userField; context: { title: 'name', content: user?.name }"></ng-container>
+        <ng-container *ngTemplateOutlet="userField; context: { title: 'email', content: user?.email }"></ng-container>
+        <ng-container *ngTemplateOutlet="userField; context: { title: 'bio', content: user?.bio }"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #userField let-title='title' let-content='content'>
+  <div class="userField">
+    <div>
+      <strong>{{ title | titlecase}}</strong>
+    </div>
+    <div *ngIf="content">{{ content }}</div>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div style="align-items: center; text-align: center;">loading...</div>
+</ng-template>
